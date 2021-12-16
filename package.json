@@ -1,0 +1,46 @@
+{
+  "name": "test_env",
+  "version": "1.0.0",
+  "main": "./dist/main/main.js",
+  "author": "Oya-Tomo",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@types/react-dom": "^17.0.11",
+    "babel-loader": "^8.2.3",
+    "electron": "^16.0.4",
+    "electron-builder": "^22.14.5",
+    "ts-node": "^10.4.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.16.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "react:build": "webpack",
+    "electron:build": "tsc --project ./tsconfig-main.json",
+    "start": "electron .",
+    "build": "yarn react:build && yarn electron:build",
+    "make": "electron-builder --win --x64 --dir"
+  },
+  "build": {
+    "appId": "net.test_env.app",
+    "extraMetadata": {
+      "main": "./dist/main/main.js"
+    },
+    "files": [
+      "package.json",
+      "dist/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    }
+  }
+}
